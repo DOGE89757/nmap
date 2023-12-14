@@ -669,7 +669,7 @@ static u8 *build_tcp(u16 sport, u16 dport, u32 seq, u32 ack, u8 reserved,
   if (window)
     tcp->th_win = htons(window);
   else
-    tcp->th_win = htons(1364); /* Who cares hades:1024 to 1364*/
+    tcp->th_win = htons(1363); /* Who cares hades:1024 to 1364*/
 
   if (urp)
     tcp->th_urp = htons(urp);
