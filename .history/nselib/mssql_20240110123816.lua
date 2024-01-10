@@ -1994,10 +1994,10 @@ LoginPacket =
   collation = 0,
 
   -- Strings
-  client = "Macintosh", --hades:Nmap to 
+  client = "Nmap",
   username = nil,
   password = nil,
-  app = "navicat", --hades:Nmap NSE to 
+  app = "Nmap NSE",
   server = nil,
   library = "mssql.lua",
   locale = "",
