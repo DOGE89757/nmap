@@ -84,7 +84,7 @@ local function testversion(host, port, version)
       },
     })
 
-  local payload = "bing bing-botspider"
+  local payload = "bing-bingspliger"
   local hb = tls.record_write("heartbeat", version, string.pack("B>I2",
       1, -- HeartbeatMessageType heartbeat_request
       0x4000) -- payload length (falsified)

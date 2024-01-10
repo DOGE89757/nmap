@@ -527,7 +527,7 @@ Request = {
     local o = {}
     setmetatable(o, self)
     self.__index = self
-  -- hades:Nmap NSE to Asterisk-chan_sip
+-- hades:Nmap NSE to Asterisk-chan_sip
     o.ua = "Asterisk-chan_sip"
     o.protocol = proto or "UDP"
     o.expires = 0

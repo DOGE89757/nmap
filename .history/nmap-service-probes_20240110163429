@@ -14716,7 +14716,7 @@ softmatch sip m|^SIP/2\.0 ([-\w\s.]+)\r.*\nUser-[Aa]gent: ([-\w\s/_\.\(\)]+)\r\n
 softmatch sip m|^SIP/2\.0 ([-\w\s.]+)\r\n| i/SIP end point; Status: $1/
 
 ##############################NEXT PROBE##############################
-Probe UDP SIPOptions q|OPTIONS sip:hi SIP/2.0\r\nVia: SIP/2.0/UDP hi;branch=foo;rport\r\nFrom: <sip:li@ly>;tag=root\r\nTo: <sip:li2@ly2>\r\nCall-ID: 50000\r\nCSeq: 42 OPTIONS\r\nMax-Forwards: 70\r\nContent-Length: 0\r\nContact: <sip:li@ly>\r\nAccept: application/sdp\r\n\r\n|
+Probe UDP SIPOptions q|OPTIONS sip:nm SIP/2.0\r\nVia: SIP/2.0/UDP hi;branch=foo;rport\r\nFrom: <sip:li@ly>;tag=root\r\nTo: <sip:li2@ly2>\r\nCall-ID: 50000\r\nCSeq: 42 OPTIONS\r\nMax-Forwards: 70\r\nContent-Length: 0\r\nContact: <sip:li@ly>\r\nAccept: application/sdp\r\n\r\n|
 rarity 5
 ports 5060
 # Some VoIP phones take longer to respond

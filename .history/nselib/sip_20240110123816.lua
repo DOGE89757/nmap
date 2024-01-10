@@ -148,8 +148,7 @@ SessionData = {
   --- Retrieves the SIP users full name
   -- @name SessionData.getName
   -- @return name string containing the users full name
-  -- hades: Nmap NSE to Asterisk-chan_sip
-  getName = function(self) return self.name or "Asterisk-chan_sip" end,
+  getName = function(self) return self.name or "Nmap NSE" end,
 }
 
 -- The session class holds the code necessary to register a SIP session
@@ -527,8 +526,8 @@ Request = {
     local o = {}
     setmetatable(o, self)
     self.__index = self
-  -- hades:Nmap NSE to Asterisk-chan_sip
-    o.ua = "Asterisk-chan_sip"
+
+    o.ua = "Nmap NSE"
     o.protocol = proto or "UDP"
     o.expires = 0
     o.allow = "PRACK, INVITE ,ACK, BYE, CANCEL, UPDATE, SUBSCRIBE"
