@@ -156,8 +156,8 @@ local have_ssl, openssl = pcall(require,'openssl')
 
 --Use zlib if we have it
 local have_zlib, zlib = pcall(require,'zlib')
---hades: change user-agent
-USER_AGENT = stdnse.get_script_args('http.useragent') or "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.129/130 Safari/537.36"
+
+USER_AGENT = stdnse.get_script_args('http.useragent') or "Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)"
 local host_header = stdnse.get_script_args('http.host')
 local MAX_REDIRECT_COUNT = 5
 local MAX_BODY_SIZE = tonumber(stdnse.get_script_args('http.max-body-size')) or 2*1024*1024
@@ -1449,8 +1449,7 @@ function generic_request(host, port, method, path, options)
     -- ntlm works with three messages. we send a request, it sends
     -- a challenge, we respond to the challenge.
     local hostname = options.auth.hostname or "localhost" -- the hostname to be sent
-    local workstation_name = options.auth.workstation_name or "TEST" -- the workstation name to be sent
-    --hades:"NMAP" to "TEST"
+    local workstation_name = options.auth.workstation_name or "NMAP" -- the workstation name to be sent
     local username = options.auth.username -- the username as specified
 
     local auth_blob = "NTLMSSP\x00" .. -- NTLM signature
@@ -2623,10 +2622,9 @@ function identify_404(host, port)
   local data
 
   -- The URLs used to check 404s
-  local URL_404_1 = '/binglowercheck' .. os.time(os.date('*t'))
-  local URL_404_2 = '/BingUpperCheck' .. os.time(os.date('*t'))
-  local URL_404_3 = '/Bing/folder/check' .. os.time(os.date('*t'))
-  --hades:nmaplowercheck、NmapUpperCheck、Nmap/folder/check to Binglowercheck、BingUpperCheck、/Bing/folder/check
+  local URL_404_1 = '/nmaplowercheck' .. os.time(os.date('*t'))
+  local URL_404_2 = '/NmapUpperCheck' .. os.time(os.date('*t'))
+  local URL_404_3 = '/Nmap/folder/check' .. os.time(os.date('*t'))
 
   data = get(host, port, URL_404_1, identify_404_get_opts)
   if(data == nil) then
